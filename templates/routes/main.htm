@@ -1,0 +1,16 @@
+
+
+<form>
+  <!--<p>there is :{{photo.data.length}} photos</p>-->
+<button ng-click="countFunc(photo.data.length)">Save to Server</button><br><br>
+<div  ng-repeat="x in photo.data">
+  <div class="img">
+    <a target="_blank" href="{{x.source}}">
+      <img ng-src="{{x.source}}" alt="Forest" width="600" height="400">
+    </a>
+      <input class="messageCheckbox" id="c{{$index}}" name="imgURL" type="checkbox" value="{{x.id}},{{fields.name}},{{x.source}}"> Save<br><br>
+      <!--<div class="desc">{{x.id}}</div>-->
+      <!--<input type="button"  ng-click="checkboxFunc()" value="Send">-->
+  </div><br><br><br>
+</div><br>
+</form>

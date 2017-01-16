@@ -1,0 +1,724 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Albums App</title>
+    <!--<script src="libs/angular-1.6.0/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <style>
+      div.img {
+        border: 1px solid #ccc;
+        background-color: white
+      }
+      div.img:hover {
+        border: 1px solid #777;
+      }
+      div.img img {
+        width: 100%;
+        height: auto;
+      }
+      div.desc {
+        padding: 15px;
+        text-align: center;
+        background-color: white
+      }
+      * {
+        box-sizing: border-box;
+        
+        
+      }
+      .responsive {
+        padding: 0 6px;
+        float: left;
+        width: 24.99999%;
+      }
+      @media only screen and (max-width: 700px){
+        .responsive {
+          width: 49.99999%;
+          margin: 6px 0;
+        }
+      }
+      @media only screen and (max-width: 500px){
+        .responsive {
+          width: 100%;
+        }
+      }
+    .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    /*---------  iphone start here  ----------*/
+    *, *:after, *:before {
+            box-sizing: border-box;
+        }
+
+        body {
+            font: 16px/1.6 "Open Sans", sans-serif;
+            padding: 20px;
+            
+        }
+
+        h1 {
+            font-size: 2.4em;
+            text-align: center;
+            letter-spacing: 4px;
+            color: #333;
+        }
+
+        .iphone {
+            box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.2);
+            border: 5px solid #d9dbdc;
+            background: #f8f8f8;
+            padding: 15px;
+            border-radius: 50px;
+            height: 817px;
+            width: 423px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .iphone-top {
+            padding: 5px 110px 40px;
+            position: relative;
+        }
+        .iphone-top .speaker {
+            display: block;
+            width: 70px;
+            height: 6px;
+            margin: 0 auto;
+            border-radius: 6px;
+            background: #292728;
+        }
+        .iphone-top .camera {
+            display: block;
+            margin: 0 auto;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            margin-bottom: 13px;
+            background: #333;
+        }
+        .iphone-top .sensor {
+            display: block;
+            width: 15px;
+            height: 15px;
+            float: left;
+            background: #333;
+            margin-top: -5px;
+            border-radius: 50%;
+        }
+
+        /*.top-bar, .bottom-bar {
+            display: block;
+            width: 423px;
+            height: 15px;
+            border-left: 5px solid #BBB;
+            border-right: 5px solid #BBB;
+            position: absolute;
+            left: -5px;
+        }*/
+
+        /*.top-bar {
+            top: 65px;
+        }
+
+        .bottom-bar {
+            bottom: 65px;
+        }*/
+
+        .iphone-screen {
+            /*background: #eee;*/
+            background-image: url("http://eskipaper.com/images/gray-background-2.jpg");
+            /*padding: 30px 0;*/
+            border: 1px solid #fff;
+            height: 617px;
+            width: 375px;
+            margin: 0 auto;
+            border: 2px solid rgba(0, 0, 0, 0.9);
+            border-radius: 3px;
+            /*overflow-y: scroll;*/
+        }
+
+        .buttons .on-off, .buttons .up, .buttons .down, .buttons .sleep {
+            display: block;
+            background: #CCC;
+            position: absolute;
+            border-radius: 2px 0px 0px 2px;
+        }
+        .buttons .on-off {
+            height: 40px;
+            width: 3px;
+            top: 100px;
+            left: -8px;
+        }
+        .buttons .up, .buttons .down, .buttons .sleep {
+            height: 60px;
+            width: 5px;
+            left: -10px;
+        }
+        .buttons .up {
+            top: 170px;
+        }
+        .buttons .down {
+            top: 250px;
+        }
+        .buttons .sleep {
+            left: auto;
+            right: -10px;
+            top: 170px;
+            border-radius: 0px 2px 2px 0px;
+        }
+
+        .iphone-bottom {
+            padding: 10px 0 0;
+        }
+        .iphone-bottom span {
+            display: block;
+            margin: 0 auto;
+            width: 68px;
+            height: 68px;
+            background: #ccc;
+            border-radius: 50%;
+            background: -webkit-linear-gradient(315deg, #303233 0%, #b5b7b9 50%, #f0f2f2 69%, #303233 100%);
+            background: linear-gradient(135deg, #303233 0%, #b5b7b9 50%, #f0f2f2 69%, #303233 100%);
+            position: relative;
+        }
+        .iphone-bottom span:after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 4px;
+            top: 4px;
+        }
+        /*------------  SCROLL BAR GOES HERE  -----------------*/
+        @import url("https://fonts.googleapis.com/css?family=Roboto");
+  
+
+        .navigation {
+          z-index: 2;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          
+          background-color: dodgerblue;
+          font-weight: 900;
+          color: #eee;
+          text-transform: uppercase;
+          padding: 10px 0px 0px 10px;
+        }
+        .navigation i {
+          cursor: pointer;
+          cursor: hand;
+        }
+        /*.navigation i:active {
+          text-shadow: 2px 4px 5px grey;
+          -webkit-transform: translateY(2px);
+                  transform: translateY(2px);
+        }*/
+
+        .main {
+          width: 100%;
+        }
+
+        .stations {
+          z-index: 1;
+  /*--------------*/
+          height: 520px;
+          max-height: 532px;
+          overflow: hidden;
+          /*http://i.imgur.com/MBiS8lZ.jpg*/
+          background-image: url("https://images.freecreatives.com/wp-content/uploads/2015/10/hd-cell-phone-wallpaper.jpg");
+          /*background-color: #d9dbdc;*/
+          color: #2f2f3a;
+        }
+        .stations .list {
+          margin: 0;
+          list-style: none;
+          padding: 0 !important;
+        }
+
+        /*************** SCROLLBAR BASE CSS ***************/
+        .scroll-wrapper {
+          overflow: hidden !important;
+          padding: 0 !important;
+          position: relative;
+        }
+
+        .scroll-wrapper > .scroll-content {
+          border: none !important;
+          box-sizing: content-box !important;
+          height: auto;
+          left: 0;
+          margin: 0;
+          max-height: none;
+          max-width: none !important;
+          overflow: scroll !important;
+          padding: 0;
+          position: relative !important;
+          top: 0;
+          width: auto !important;
+        }
+
+        .scroll-wrapper > .scroll-content::-webkit-scrollbar {
+          height: 0;
+          width: 0;
+        }
+
+        .scroll-element {
+          display: none;
+        }
+
+        .scroll-element, .scroll-element div {
+          box-sizing: content-box;
+        }
+
+        .scroll-element.scroll-x.scroll-scrollx_visible,
+        .scroll-element.scroll-y.scroll-scrolly_visible {
+          display: block;
+        }
+
+        .scroll-element .scroll-bar,
+        .scroll-element .scroll-arrow {
+          cursor: default;
+        }
+
+        .scroll-textarea {
+          border: 1px solid #cccccc;
+          border-top-color: #999999;
+        }
+
+        .scroll-textarea > .scroll-content {
+          overflow: hidden !important;
+        }
+
+        .scroll-textarea > .scroll-content > textarea {
+          border: none !important;
+          box-sizing: border-box;
+          height: 100% !important;
+          margin: 0;
+          max-height: none !important;
+          max-width: none !important;
+          overflow: scroll !important;
+          outline: none;
+          padding: 2px;
+          position: relative !important;
+          top: 0;
+          width: 100% !important;
+        }
+
+        .scroll-textarea > .scroll-content > textarea::-webkit-scrollbar {
+          height: 0;
+          width: 0;
+        }
+
+        /*************** SCROLLBAR MAC OS X ***************/
+        .scrollbar-macosx > .scroll-element,
+        .scrollbar-macosx > .scroll-element div {
+          background: none;
+          border: none;
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          z-index: 10;
+        }
+
+        .scrollbar-macosx > .scroll-element div {
+          display: block;
+          height: 100%;
+          left: 0;
+          top: 0;
+          width: 100%;
+        }
+
+        .scrollbar-macosx > .scroll-element .scroll-element_track {
+          display: none;
+        }
+
+        .scrollbar-macosx > .scroll-element .scroll-bar {
+          background-color: #6C6E71;
+          display: block;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+          filter: alpha(opacity=0);
+          opacity: 0;
+          border-radius: 7px;
+          -webkit-transition: opacity 0.2s linear;
+          transition: opacity 0.2s linear;
+        }
+
+        .scrollbar-macosx:hover > .scroll-element .scroll-bar,
+        .scrollbar-macosx > .scroll-element.scroll-draggable .scroll-bar {
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+          filter: alpha(opacity=70);
+          opacity: 0.7;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-x {
+          bottom: 0px;
+          height: 0px;
+          left: 0;
+          min-width: 100%;
+          overflow: visible;
+          width: 100%;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-y {
+          height: 100%;
+          min-height: 100%;
+          right: 0px;
+          top: 0;
+          width: 0px;
+        }
+
+        /* scrollbar height/width & offset from container borders */
+        .scrollbar-macosx > .scroll-element.scroll-x .scroll-bar {
+          height: 7px;
+          min-width: 10px;
+          top: -9px;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-y .scroll-bar {
+          left: -9px;
+          min-height: 10px;
+          width: 7px;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-x .scroll-element_outer {
+          left: 2px;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-x .scroll-element_size {
+          left: -4px;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-y .scroll-element_outer {
+          top: 2px;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-y .scroll-element_size {
+          top: -4px;
+        }
+
+        /* update scrollbar offset if both scrolls are visible */
+        .scrollbar-macosx > .scroll-element.scroll-x.scroll-scrolly_visible .scroll-element_size {
+          left: -11px;
+        }
+
+        .scrollbar-macosx > .scroll-element.scroll-y.scroll-scrollx_visible .scroll-element_size {
+          top: -11px;
+        }
+        /*-----------  ALBUMS Style  ---------*/
+        #expertise {
+        width:500px;
+        height:500px;
+        display:block;
+        margin:0 auto;
+        padding:25vh 0;
+      }
+
+      .item {
+        position:relative;
+        color: #fff;
+        background-color: transparent;
+        padding: 10px;
+        width:47%;
+        border: #fff solid 2px;
+        margin-bottom:10px;
+        display:inline-block;
+        * display:inline;
+        margin: 0px 3px 10px 3px;
+        padding:20px;
+        box-sizing:border-box;
+        text-align:center;
+        text-transform:uppercase;
+        letter-spacing:2px;
+        border-radius:2px;
+        box-shadow:0px 2px 5px rgba(0,0,0,0.5);
+          overflow:hidden;
+      }
+
+      .item:before {
+        content:'';
+        background-repeat: no-repeat;
+        background-size: 100%;
+        width:30px;
+        height:40px;
+        display:block;
+        margin:0 auto;
+      }
+
+      .origin.item:before {
+        background-image: url("http://image.flaticon.com/icons/svg/309/309446.svg");
+      }
+
+      .item:after {
+        content: "";
+        display:block;
+        border-top: 0 #fff solid;
+        border-bottom: 15px transparent solid;
+        border-left: 15px #fff solid;
+        position:absolute;
+        top:0;
+        left:0;
+        width:0;
+        z-index:-1;
+        overflow:hidden;
+      }
+
+      .item:hover:after {
+        z-index:-1;
+        border-left: 302px solid #fff;
+        border-bottom:302px solid transparent;
+        overflow:hidden;
+        background-color:deepskyblue;
+      }
+
+      .item:hover:before {
+        background-image: url("http://image.flaticon.com/icons/png/512/58/58503.png");
+      }
+
+      .item:hover {
+        color:deepskyblue;
+        overflow:hidden;
+        margin-bottom: 10px;
+        cursor:pointer;
+      }
+
+      .item:hover, .item:after, .item {
+        -webkit-transition: 0.5s color ease;
+        -moz-transition: 0.5s color ease;
+        -o-transition: 0.5s color ease;
+        transition: 0.5s color ease;
+      }
+
+      .item:hover, .item:after {
+        -webkit-transition: 0.5s border ease;
+        -moz-transition: 0.5s border ease;
+        -o-transition: 0.5s border ease;
+        transition: 0.5s border ease;
+      }
+
+      .item:after {
+          overflow:hidden;
+      }
+
+      .item:before, .item:hover:before, .item:hover:after {
+        -webkit-transition: 0.75s all ease;
+        -moz-transition: 0.75s all ease;
+        -o-transition: 0.75s all ease;
+        transition: 0.75s all ease;
+      }
+    </style>
+    
+
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="myCtrl">
+    <div class="iphone">
+    <div class="iphone-top">
+        <span class="camera"></span>
+        <span class="sensor"></span>
+        <span class="speaker"></span>
+    </div>
+    <div class="top-bar"></div>
+    <div class="iphone-screen">
+      
+    <div class='main'>
+    <header class='navigation'>
+    <a href="#album" style="color: #fff !important; padding: 15px 15px 0px 0px" class='fa fa-chevron-left'></a>
+    <img ng-src="{{fields.picture.data.url}}" style="height:15%;width:15%;border-radius:50%" alt="">
+    <h3 style="padding: 0px 0px 0px 10px">{{fields.name}}</h3>
+    </header> 
+    <div class='stations scrollbar-macosx'>
+    <ul class='list'>
+        <br><br>
+        <!--<button ng-click="convert(fields.picture.data.url)">Convert</button>
+        <h4>Total number of albums is : {{fields.albums.data.length}} </h4>
+        <h4>Total number of photos is : {{photos.albums.data.length}} </h4>-->
+        <div ng-view></div><br>
+      
+      <!--<a href="#/">Main</a><br>
+      <a href="#album">Album</a><br>-->
+    </div>
+    </div>
+
+
+        
+
+
+    </div>
+    <div class="buttons">
+        <span class="on-off"></span>
+        <span class="sleep"></span>
+        <span class="up"></span>
+        <span class="down"></span>
+    </div>
+    <div class="bottom-bar"></div>
+    <div class="iphone-bottom">
+        <span></span>
+    </div>
+    </div>
+    </div><br>
+    <script>
+      var dataToSend = {"photoID": '',"userID": '',"imgBase64": ''}
+      var app = angular.module('myApp', ["ngRoute"]);
+      var localhost = 'http://localhost:3000'
+      var x
+      var y
+      app.controller('myCtrl', function($scope, $http, $filter) {
+        var field_array = {};
+        var photo_array = {};
+        var t =''
+        $http.get(localhost+'/app')
+        .then(function(response) {
+          $scope.fields = response.data[0];
+          $scope.fields.albums.data = $filter('orderBy')($scope.fields.albums.data, 'name');
+          $scope.photos = response.data[1]
+          field_array = response.data[0];
+          photo_array = response.data[1];
+        });
+        function loadAlbums(){
+          location.href='#/album'
+        }
+        loadAlbums();
+        $scope.myFunc = function(x) {
+          $scope.t = x
+          console.log(t)
+          for (i = 0; i < field_array.albums.data.length; i++) {
+            if(x === photo_array.albums.data[i].id){
+              $scope.photo =  photo_array.albums.data[i].photos
+            }
+          }
+          location.href='#/'
+        };
+
+        $scope.myFunc0 = function(x0) {
+          $scope.t = x0
+          console.log(t)
+          for (i = 0; i < field_array.albums.data.length; i++) {
+            if(x0 === photo_array.albums.data[i].id){
+              $scope.photo =  photo_array.albums.data[i].photos
+            }
+          }
+          location.href='#/'
+        };
+
+        $scope.checkboxFunc = function() {
+          var imgURL = document.forms[0];
+          var imgValue
+          var i;
+          
+          for (i = 0; i < imgURL.length; i++) {
+              if (imgURL[i].checked) {
+                imgValue = imgValue + imgURL[i].value + " ";
+              }
+            }
+            console.log(imgValue)
+          
+        };
+        
+        $scope.countFunc =function(lenght){
+          var i
+          //---- intializing arrys
+          
+          for(i = 0; i< lenght; i++){
+            var array = (document.getElementById("c"+i).value).split(",");
+            
+            if(document.getElementById("c"+i).checked){
+              x = array[0]
+              y = array[1]
+              getImageDataURL(array[2], onSuccess, onError)
+            }else{
+              console.log("c"+i+" is Not checked ")
+            }
+            
+          }
+        }
+        // ---- convert image to base64
+        function getImageDataURL(url, success, error) {
+        var data, canvas, ctx;
+        var img = new Image();
+        img.onload = function(){
+          // Create the canvas element.
+          canvas = document.createElement('canvas');
+          canvas.width = img.width;
+          canvas.height = img.height;
+          // Get '2d' context and draw the image.
+          ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+          // Get canvas data URL
+          try{
+            data = canvas.toDataURL();
+            success({image:img, data:data});
+          }catch(e){
+            error(e);
+          }
+        }
+        // Load image URL. 1558209153308 1558209153308
+        try{
+          img.setAttribute('crossOrigin', 'anonymous');
+          img.src = url;
+        }catch(e){
+          error(e);
+        }
+      }
+
+      // Usage of the base64 function
+      var onSuccess = function(e){
+        // document.body.appendChild(e.image);
+          //dataToSend.imgBase64 = e.data
+          dataToSend = {"photoID": x,"userID": y,"imgBase64": e.data}
+          $http.post(localhost+'/api/albums/', dataToSend).then();
+          dataToSend = {"photoID": 'x',"userID": 'y',"imgBase64": e.data}
+          
+      };
+
+      var onError = function(e){
+        console.log(e.message);
+      };
+      // ---- calling base64 converter  1558209153308
+      $scope.convert = function (photo){
+        getImageDataURL(photo, onSuccess, onError);
+      }
+
+      });
+      app.config(function($routeProvider) {
+        $routeProvider
+        .when("/", {
+          templateUrl : localhost+"/main"
+        })
+        .when("/album", {
+          templateUrl : localhost+"/album"
+        });
+      });
+      
+      
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src='http://gromo.github.io/jquery.scrollbar/jquery.scrollbar.js'></script>
+
+    <script>
+      $(document).ready(function(){
+      $('.scrollbar-macosx').scrollbar();
+      var nowPlay = $('.now-playing');
+      $('.station-name').click(function() {
+        var text = $(this).text();
+        $('.station-screen').removeClass('open');
+        $('.current-station').remove();
+        $(this).prev().addClass('open');
+        $(nowPlay).css('visibility', 'visible');
+        $(nowPlay).append('<span class="current-station">'+text+'</span>');
+      });
+    });
+    </script>
+
+  </body>
+</html>

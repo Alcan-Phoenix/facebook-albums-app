@@ -1,0 +1,8 @@
+<table class="gridStyle">
+    <tbody ng-repeat="field in fields.albums.data track by $index"  ng-if="$index % 2 == 0" >
+        <tr>
+        <td class="origin item"><div ng-click="myFunc(fields.albums.data[$index].id)">{{fields.albums.data[$index].name}}</div></td> 
+        <td class="origin item"><div ng-click="myFunc0(fields.albums.data[$index+1].id)">{{fields.albums.data[$index+1].name}}</div></td>
+        </tr>
+    </tbody>
+</table>

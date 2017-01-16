@@ -1,0 +1,27 @@
+{
+  "name": "facebook-album-app",
+  "version": "1.0.0",
+  "description": "This is a facebook app that can access your album photo and navigate into your facebook pictures",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Alcan-Phoenix/facebook-albums-app.git"
+  },
+  "author": "Anouar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alcan-Phoenix/facebook-albums-app/issues"
+  },
+  "homepage": "https://github.com/Alcan-Phoenix/facebook-albums-app#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.7.7",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "sync-request": "^4.0.1"
+  }
+}
